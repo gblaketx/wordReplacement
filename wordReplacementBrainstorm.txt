@@ -1,0 +1,44 @@
+# Word Replacement Brainstorm
+
+# 0) Define the problem:
+# Given a sentence s, which contains one word removed, and a list of candidate words x_1, x_2, .. x_n (let's say n=5), pick the word that best fits the sentence.
+# The correct answer is the word that was actually removed from the sentence.
+
+# 1) Generate training data
+# Automated: Take a bunch of sentences from a corpus, randomly remove words from them
+    # Selecting distractors: 
+        # Level 0: Randomly pick words from a dictionary
+        # Level 0.1: Randomly pick other candidates from the sentence?
+        # Level 1: Randomly pick words sharing part of speech from dictionary
+        # Level 2: Randomly pick words sharing part of speech and some similarity score from dictionary
+        # Level 3: GANS
+
+# 2) Locate testing data (GRE sample questions?)
+#   Gold: actual GRE questions
+#   Silver: Human-written distractors
+
+# 3) Determine data model
+#   Input is raw text with the special token "<BLANK/>" identifying the word where there is a blank
+#   Sentence Features:
+#       N-grams
+#       POS-distribution
+#       Deep Syntax
+#       Basically everything from deception detection
+# 
+#       Bag of Words Model: Tokenize the sentence, throw in some POS and other syntactic info about the tokens
+#
+#   Baseline: unigrams and Naive Bayes (bag of words) 
+#
+#   Candidate Words:
+#       Vector Encodings: GloVe, Word2Vec
+#       Other Metadata: List of POSs
+#
+# 4) Implement preprocessing and modeling pipeline
+#
+# 5) Try different machine learning techniques
+#   Word 2 Vec
+#   GloVe
+#
+# 6) Evaluate on test set
+#
+# 7) CLI interface using best model for fun
